@@ -238,14 +238,14 @@ export const createMessageSettings = () =>
 			public: true,
 			i18nDescription: 'Message_VideoRecorderEnabledDescription',
 		});
-		await this.add('AutoTranslate_Enabled', false, {
+		await this.add('AutoTranslate_Enabled', true, {
 			type: 'boolean',
 			group: 'Message',
 			section: 'AutoTranslate',
 			public: true,
 		});
 
-		await this.add('AutoTranslate_AutoEnableOnJoinRoom', false, {
+		await this.add('AutoTranslate_AutoEnableOnJoinRoom', true, {
 			type: 'boolean',
 			group: 'Message',
 			section: 'AutoTranslate',
