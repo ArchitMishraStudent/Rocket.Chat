@@ -8,16 +8,7 @@ export function getSubscriptionAutotranslateDefaultConfig(user: AtLeast<IUser, '
 			autoTranslateLanguage: string;
 	  }
 	| undefined {
-	if (!settings.get('AutoTranslate_AutoEnableOnJoinRoom')) {
-		return;
-	}
-
-	const languageSetting = settings.get('Language');
-
-	const { language: userLanguage } = user.settings?.preferences || {};
-	if (!userLanguage || userLanguage === 'default' || languageSetting === userLanguage) {
-		return;
-	}
-
-	return { autoTranslate: true, autoTranslateLanguage: userLanguage };
+	// Always enable auto-translate with system language
+	const languageSetting = String(settings.get('Language') || 'en');
+	return { autoTranslate: true, autoTranslateLanguage: languageSetting };
 }
